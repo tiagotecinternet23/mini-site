@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
+
+/* Regras CSS para o Site de Exemplo 
+O que você fizer aqui irá formatar TODAS as páginas HTML conectadas com este arquivo. */
+
+/* Seletor UNIVERSAL
+Alterando o Box Model
+para TODAS as tags do HTML */
+* { box-sizing: border-box; }
+
+
+body {
+    background-image: url(../imagens/tarde.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Seletor ID/IDENTIFICADO */
+#container {
+    background-color: rgba(255, 255, 255, 0.822);
+
+    /* Definindo largura e
+    margem automática, o resultado
+    é a centralização da caixa */
+    width: 80%;
+    margin: auto;
+
+    /* Limitando a largura máxima */
+    max-width: 1200px;
+
+    /* Limitando a largura mínima */
+    min-width: 400px;
+
+    padding: 10px;
+    border-radius: 20px;
+
+    /* cor distH distV esfumaçamento */
+    box-shadow: black 0 0 100px;
+}
+
+
+/* Tornando as imagens
+flexíveis/responsivas */
+img { max-width: 100%; }
+
+h1 {
+    font-family: 'Climate Crisis', cursive;
+    color: white;
+    padding: 10px;
+    text-shadow: black 1px 1px 5px;
+
+    /* Obs.: no caso de gradiente diagonal
+    usa-se um valor numérico e a medida em 
+    graus (deg representa graus) */
+    /* background: 
+        linear-gradient(
+            45deg, black, transparent, blue
+        ); */
+
+    background: linear-gradient(135deg, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%);
+        
+    
+    font-weight: normal;
+    text-align: center;
+    font-size: 50px;
+
+    border-top-left-radius: 50px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 10px;
+}
+
+h2 {
+    background-image: url(../imagens/oriental-tiles.png);
+    color: white;
+    padding: 10px;
+    /* border-left-width: 20px;
+    border-left-color: yellow;
+    border-left-style: solid; */
+    border-left: 20px yellow solid;
+    
+    /* border-right-width: 20px;
+    border-right-color: yellow;
+    border-right-style: solid; */
+    border-right: solid 20px yellow;
+}
+
+/* Seletor CLASSE */
+.centralizar { text-align: center; }
+.sombra-texto { text-shadow: black 2px 2px 3px; }
+.borda-arredondada { border-radius: 8px; }
+.destaque {
+    background-color: yellow;
+    
+    /* Primeiro Valor (cima/embaixo)
+    Segundo Valor (esquerda/direita) */
+
+    /* padding: 2px 4px; */
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    border: solid 2px red;
+}
+
+/* Regras para o menu e seus links */
+
+nav { text-align: center; }
+
+/* Regra de estado inicial do link
+Seletor DESCENDENTE */
+nav a { 
+    color: white;
+    background-color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    width: 33.33%;
+    display: inline-block;
+
+    /* Altera o comportamento
+    Box Model CSS */
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+/* Regra de acionamento do link
+Seletor DESCENDENTE + PSEUDO-CLASSE
+:hover -> mouse 
+:focus -> foco (teclado, dedo etc) */
+nav a:hover, nav a:focus {
+    background-color: darkblue;
+    transform: translateY(-10px);
+    /* transform: rotateZ(90deg) translateY(100px); */
+}
+
+figure { 
+    text-align: center; 
+    /* background-color: yellow; */
+
+    /* Tornando o elemento
+    referência para o posicionamento */
+    position: relative;
+
+    max-width: 419px;
+    margin: 0 auto;
+}
+
+figcaption { 
+    /* "Devolver" a área do
+    elemento */
+    width: 100%;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.695); 
+    color: white;
+    padding: 10px;
+    
+    /* Tornando o elemento
+    livre para posicionamento */
+    position: absolute;
+
+    /* Coordenadas */
+    bottom: 30px;
+    right: 0;
+}
+
+
+/* Seletor DESCENDENTE ? */
+figure {
+    filter: grayscale(100%);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+figure:hover {
+    filter: none;
+    transform: scale(1.05) rotate(3deg);
+}
+
+
+/* Seletor DESCENDENTE
+Selecionar todas as imagens
+que estão dentro de alguma tag
+com a classe centralizar  */
+.centralizar img {
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+}
+
+ul { font-family: Impact; }
+ul li { color: red; }
+
+/* PSEUDO-CLASSES */
+
+/* Formatando apenas o primeiro
+li descendente de ul */
+ul li:first-child { color: blue; }
+
+/* Formatando apenas o último
+li descendente de ul */
+ul li:last-child { color: green; }
+
+ul li:nth-child(2) { color: black; }
+
+/* odd -> ímpar      even -> par */
+/* ul li:nth-child(odd) { background-color: lightcoral; } 
+ul li:nth-child(even) { background-color: yellow; } */
+ul li:nth-child(3n) { background-color: lawngreen; }
+
+
+
+
+.flutuar {
+    float: left;
+    margin-right: 10px;
+}
+
+
+/* Etapa 1: criar regra de animação */
+@keyframes animaCores {
+    /* De (como inicia): */
+    from { 
+        background-color: yellow;
+        color: blue;
+    }
+
+    /* Para (como termina) */
+    to { 
+        background-color: blue;
+        color: yellow;
+    }
+}
+
+
+/* Etapa 2: aplicar a animação
+em algum(ns) elemento(s) */
+.subtitulo, h3 { 
+    /* name e duration OBRIGATÓRIOS */
+    animation-name: animaCores; 
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+
+#banner {
+    width: 450px;
+    margin: auto;
+    border: solid 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes animaBanner {
+    from { 
+        transform: translateX(-128px) rotate(0);
+    }
+    to { 
+        transform: 
+            translateX(440px) 
+            rotate(360deg); 
+    }
+}
+
+#banner img {
+    animation-name: animaBanner;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+}
+
+#banner p {
+    will-change: transform;
+
+    background-color: rgba(0, 0, 0, 0.569);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    /* left: 0; right: 0; */
+
+    /* CSS Reset */
+    margin: 0;
+    padding: 0;
+
+    /* animation-name: desafio;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+
+    animation: desafio 2s infinite alternate;
+}
+
+@keyframes desafio {
+    from { transform: scale(1); }
+
+    to { 
+        transform: scale(1.5); 
+        background-color: rgba(0, 0, 255, 0.652);
+    }
+}
+
